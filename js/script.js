@@ -1,7 +1,10 @@
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", function () {
+  // Tabs
+
   const tabs = document.querySelectorAll(".tabheader__item"),
     tabsContent = document.querySelectorAll(".tabcontent"),
     tabsParent = document.querySelector(".tabheader__items");
+
   function hideTabContent() {
     tabsContent.forEach((item) => {
       item.style.display = "none";
@@ -10,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
       item.classList.remove("tabheader__item_active");
     });
   }
+
   function showTabContent(i = 0) {
     tabsContent[i].style.display = "block";
     tabs[i].classList.add("tabheader__item_active");
@@ -27,7 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
-  const deadline = "2022-04-31";
+
+  // Timer
+
+  const deadline = "2022-04-01";
 
   function getTimeRemaining(endtime) {
     const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -71,11 +78,50 @@ document.addEventListener("DOMContentLoaded", function () {
       minutes.innerHTML = getZero(t.minutes);
       seconds.innerHTML = getZero(t.seconds);
 
-      if (t.total <= 0) {
-        clearInterval(timeInterval);
+      if (t.total < 0) {
+        days.innerHTML = "00";
+        hours.innerHTML = "00";
+        minutes.innerHTML = "00";
+        seconds.innerHTML = "00";
       }
     }
   }
 
   setClock(".timer", deadline);
+
+  // Modal
+
+  const modalTrigger = document.querySelectorAll("[data-modal]"),
+    modal = document.querySelector(".modal"),
+    modalCloseBtn = document.querySelector("[data-close]");
+
+  modalTrigger.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      modal.classList.add("show");
+      modal.classList.remove("hide");
+      // Либо вариант с toggle - но тогда назначить класс в верстке
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function closeModal() {
+    modal.classList.add("hide");
+    modal.classList.remove("show");
+    // Либо вариант с toggle - но тогда назначить класс в верстке
+    document.body.style.overflow = "";
+  }
+
+  modalCloseBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "Escape" && modal.classList.contains("show")) {
+      closeModal();
+    }
+  });
 });

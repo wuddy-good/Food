@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Food</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/first.css" />
   </head>
   <body>
     <header class="header">
@@ -19,7 +18,7 @@
         </nav>
       </div>
       <div class="header__right-block">
-        <button class="btn btn_white">Связаться с нами</button>
+        <button class="btn btn_white" data-modal>Связаться с нами</button>
       </div>
     </header>
     <div class="sidepanel">
@@ -74,12 +73,10 @@
           <div class="tabheader">
             <h3>Выберите стиль питания</h3>
             <div class="tabheader__items">
-              <div class="tabheader__item tabheader__item_active" id="Fitnes">
-                Фитнес
-              </div>
-              <div class="tabheader__item" id="Premium">Премиум</div>
-              <div class="tabheader__item" id="Post">Постное</div>
-              <div class="tabheader__item" id="Balance">Сбалансированное</div>
+              <div class="tabheader__item tabheader__item_active">Фитнес</div>
+              <div class="tabheader__item">Премиум</div>
+              <div class="tabheader__item">Постное</div>
+              <div class="tabheader__item">Сбалансированное</div>
             </div>
           </div>
         </div>
@@ -103,7 +100,7 @@
           </div>
         </div>
         <div class="offer__action">
-          <button class="btn btn_dark">Связаться с нами</button>
+          <button class="btn btn_dark" data-modal>Связаться с нами</button>
         </div>
       </div>
       <div class="container">
@@ -360,7 +357,7 @@
       <div class="modal__dialog">
         <div class="modal__content">
           <form action="#">
-            <div class="modal__close">&times;</div>
+            <div class="modal__close" data-close>&times;</div>
             <div class="modal__title">
               Мы свяжемся с вами как можно быстрее!
             </div>
@@ -383,6 +380,7 @@
         </div>
       </div>
     </div>
+
     <script src="js/script.js"></script>
   </body>
 </html>

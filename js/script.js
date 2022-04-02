@@ -84,10 +84,7 @@ window.addEventListener("DOMContentLoaded", function () {
       seconds.innerHTML = getZero(t.seconds);
 
       if (t.total <= 0) {
-        days.innerHTML = "00";
-        hours.innerHTML = "00";
-        minutes.innerHTML = "00";
-        seconds.innerHTML = "00";
+        clearInterval(timeInterval);
       }
     }
   }
@@ -207,7 +204,7 @@ window.addEventListener("DOMContentLoaded", function () {
     "img/tabs/elite.jpg",
     "elite",
     "Меню “Премиум”",
-    "В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!",
+    `В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!`,
     21,
     ".menu .container"
   ).render();

@@ -285,17 +285,7 @@ window.addEventListener("DOMContentLoaded", function () {
       closeModal();
     }, 4000);
   }
-  fetch("http://example.com/movies.json", {
-    method: "POST",
-    body: JSON.stringify({ name: "Alex" }),
-    headers: {
-      "Content-type": "application/json",
-    },
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-    });
+  fetch("http://localhost:3000/menu")
+    .then((data) => data.json())
+    .then((res) => console.log(res));
 });
